@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traffic Light </title>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .light {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      border-radius: 50%;
+      opacity: 0.3;
+    }
+    #red { background-color: red; }
+    #yellow { background-color: yellow; }
+    #green { background-color: green; }
+    .active { opacity: 1; }
+  </style>
+</head>
+<body><center>
+  <h1>Traffic Light Simulation</h1>
+  <div id="red" class="light"></div>
+  <div id="yellow" class="light"></div>
+  <div id="green" class="light"></div></center>
+  <script>
+    // Function to turn on a specific light
+    function Light(lightId) {
+      // Turn off all lights first
+      document.getElementById('red',"yellow","green").classList.remove('active');
+      document.getElementById(lightId).classList.add('active');
+    }
+    function fun() {
+      Light("red");
+      setTimeout(() => {
+        Light("yellow");
+        setTimeout(() => {
+          Light("green");
+          setTimeout(fun, 3000);
+        },1000);
+      }, 3000);
+    }
+    fun();
+  </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setTimeout </title>
+  </head>
+  <style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #e24a59, #6217ee);
+  height: 200vh;
+  color: rgb(5, 5, 105);
+}
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #0e0d0d;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+button {
+  background: #ff6347;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+button:hover {
+  background: #ff4500;
+  transform: scale(1.1);
+}
+  </style>
+  <body><center>
+    <h1>setTimeout Example</h1>
+    <button onclick="fun()">click me</button>
+    <div id="loading"></div></center>
+    <script>
+      const messages = [
+        "my name is xyz...",
+        "i am from 10kcodes",
+        "taking training as full stack developer",
+        "because.....",
+        "i want to become a developer"
+      ];
+      count = 0
+      function fun() {
+        if (count < messages.length) {
+          document.getElementById("loading").innerText=messages[count]
+          count++
+          console.log(messages)
+          setTimeout(fun, 2000)
+        }
+      }
+    </script>
+  </body>
+</html>
